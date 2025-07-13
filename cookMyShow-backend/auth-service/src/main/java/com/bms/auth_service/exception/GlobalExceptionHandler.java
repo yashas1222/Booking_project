@@ -26,4 +26,9 @@ return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
         ex.printStackTrace();
         return new ResponseEntity<>("Something went wrong",HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(AuthFailedException.class)
+    public  ResponseEntity<String>handleAuthFailedException(AuthFailedException ex){
+        return new ResponseEntity<>(ex.getMessage(),HttpStatus.BAD_REQUEST);
+    }
 }

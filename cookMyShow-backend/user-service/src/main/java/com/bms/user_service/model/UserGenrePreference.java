@@ -8,7 +8,6 @@ public class UserGenrePreference {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private Long userId;
     private Long genreId;
 

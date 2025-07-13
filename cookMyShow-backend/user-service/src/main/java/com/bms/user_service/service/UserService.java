@@ -81,6 +81,7 @@ public class UserService {
     public ResponseEntity<String> deleteUser(String email) {
         User user = userRepository.findByEmail(email).orElseThrow(()-> new UserNotFoundException("User not found"));
         userRepository.deleteById(user.getId());
+        userGenrePreferenceRepository.deleteByUserId(user.getId());
         return new ResponseEntity<>("Deleted user "+user.getEmail(),HttpStatus.OK);
     }
 }

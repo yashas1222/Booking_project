@@ -1,10 +1,7 @@
 package com.bms.auth_service.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -21,8 +18,10 @@ public class Auth {
     @Id
     private  Long id;
 
+    @Column(unique = true, nullable = false)
     @Email(message = "Invalid Email")
     @NotBlank(message = "Invalid Email")
+
     private  String email;
 
 

@@ -13,4 +13,7 @@ public interface AuthRepository extends JpaRepository<Auth, Long> {
 
 
     Optional<Auth> findByEmail(@Email(message = "Invalid Email") @NotBlank(message = "Invalid Email") String email);
+    void deleteByEmail(String email);
+
+    boolean existsByEmail(@Email(message = "Invalid email") @NotBlank(message = "Invalid email") String email);
 }

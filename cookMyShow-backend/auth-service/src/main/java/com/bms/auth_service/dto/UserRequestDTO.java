@@ -26,9 +26,7 @@ public class UserRequestDTO {
     @Size(min = 1, message = "At least one genre must be selected")
     private List<Long> genreIds;
 
-    public  UserRequestDTO(){
-
-    }
+    public  UserRequestDTO(){}
 
 
     public UserRequestDTO(Long id,String name, String email, String phone, List<Long> genreIds) {
