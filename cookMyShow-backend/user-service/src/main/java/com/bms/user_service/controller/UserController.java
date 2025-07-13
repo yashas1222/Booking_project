@@ -25,9 +25,12 @@ public class UserController {
         return userService.getUser(email);
     }
 
-//    @PutMapping("/update/{email}")
-//    public ResponseEntity<String> updateUser(@Valid @RequestBody UserRequestDTO userRequestDTO){
-//        return userService.updateUser(userRequestDTO);
-//    }
-
+    @PutMapping("/update/{email}")
+    public ResponseEntity<UserResponseDTO> updateUser(@PathVariable String email, @RequestBody UserRequestDTO dto) {
+        return userService.updateUser(email, dto);
+    }
+    @DeleteMapping("/delete/{email}")
+    public ResponseEntity<String> deleteUser(@PathVariable String email) {
+        return userService.deleteUser(email);
+    }
 }

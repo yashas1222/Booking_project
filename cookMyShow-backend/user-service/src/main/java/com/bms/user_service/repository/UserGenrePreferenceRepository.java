@@ -10,4 +10,6 @@ import java.util.List;
 public interface UserGenrePreferenceRepository extends JpaRepository<UserGenrePreference,Long> {
    @Query(value = "SELECT u.genre_id from user_genre_preferences u where u.user_id=:userId",nativeQuery = true)
     List<Long> findGenreListByUserId(@Param("userId") Long userId);
+
+    void deleteByUserId(Long id);
 }

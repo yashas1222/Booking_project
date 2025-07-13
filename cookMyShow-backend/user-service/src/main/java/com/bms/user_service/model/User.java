@@ -32,10 +32,6 @@ public class User {
     public void prePersist(){
         this.createdAt = LocalDateTime.now();
     }
-
-
-
-
     public User(Long id,String name, String email, String phone) {
     this.id = id;
     this.name = name;

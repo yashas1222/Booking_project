@@ -13,11 +13,13 @@ public class UserResponseDTO {
     private String phone;
     private LocalDateTime createdAt;
     private List<Long> genreIds;
+    private String token;
 
 
     public UserResponseDTO() {}
 
-    public UserResponseDTO(String name, String email, String phone, LocalDateTime createdAt, List<Long> genreIds) {
+    public UserResponseDTO(String name, String email, String phone, LocalDateTime createdAt,
+                           List<Long> genreIds) {
         this.name = name;
         this.email = email;
         this.phone = phone;

@@ -7,6 +7,7 @@ import com.bms.user_service.model.User;
 import com.bms.user_service.model.UserGenrePreference;
 import com.bms.user_service.repository.UserGenrePreferenceRepository;
 import com.bms.user_service.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -56,11 +57,30 @@ public class UserService {
         );
     }
 
-//    public ResponseEntity<String> updateUser(@Valid UserRequestDTO userRequestDTO) {
-//        User user = userRepository.findByEmail(userRequestDTO.getEmail()).orElseThrow(()-> new UserNotFoundException("User not found!"));
-//        user.setName(userRequestDTO.getName());
-//        user.setEmail(userRequestDTO.getEmail());
-//        user.setPhone(userRequestDTO.getPhone());
-//
-//    }
+
+    @Transactional
+    public ResponseEntity<UserResponseDTO> updateUser(String email, UserRequestDTO dto) {
+        User user = userRepository.findByEmail(email).orElseThrow(()-> new UserNotFoundException("User not found"));
+        user.setName(dto.getName());
+        user.setEmail(dto.getEmail());
+        user.setPhone(dto.getPhone());
+
+        userGenrePreferenceRepository.deleteByUserId(user.getId());
+
+        for (Long genreId : dto.getGenreIds()) {
+            UserGenrePreference userGenrePreference = new UserGenrePreference(user.getId(), genreId);
+            userGenrePreferenceRepository.save(userGenrePreference);
+        }
+        List<Long> genreIds =  userGenrePreferenceRepository.findGenreListByUserId(user.getId());
+
+        userRepository.save(user);
+        return new ResponseEntity<>(new UserResponseDTO(user.getName(),user.getEmail(), user.getPhone(),user.getCreatedAt(),genreIds ),HttpStatus.OK);
+    }
+
+@Transactional
+    public ResponseEntity<String> deleteUser(String email) {
+        User user = userRepository.findByEmail(email).orElseThrow(()-> new UserNotFoundException("User not found"));
+        userRepository.deleteById(user.getId());
+        return new ResponseEntity<>("Deleted user "+user.getEmail(),HttpStatus.OK);
+    }
 }

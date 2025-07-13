@@ -8,6 +8,7 @@ import com.bms.auth_service.exception.UserNotFoundException;
 import com.bms.auth_service.feign.AuthInterface;
 import com.bms.auth_service.model.Auth;
 import com.bms.auth_service.repositroy.AuthRepository;
+import com.bms.auth_service.util.JwtUtil;
 import jakarta.validation.Valid;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,10 @@ public class AuthService {
     @Autowired
     AuthInterface authInterface;
 
-    public ResponseEntity<String> signup(@Valid AuthSignupRequestDTO authSignupRequestDTO) {
+    @Autowired
+    JwtUtil jwtUtil;
 
+    public ResponseEntity<String> signup(@Valid AuthSignupRequestDTO authSignupRequestDTO) {
         Auth auth = new Auth(authSignupRequestDTO.getEmail(),authSignupRequestDTO.getPassword());
 authRepository.save(auth);
 Long authId = auth.getId();
@@ -39,6 +42,15 @@ return new ResponseEntity<>("Signup Successfull",HttpStatus.OK);
 
     public ResponseEntity<UserResponseDTO> login(@Valid AuthLoginRequestDTO authLoginRequestDTO) {
         Auth auth = authRepository.findByEmail(authLoginRequestDTO.getEmail()).orElseThrow(()-> new UserNotFoundException("User Not Found"));
-        return authInterface.getUser(authLoginRequestDTO.getEmail());
+
+        if(!auth.getPassword().equals(authLoginRequestDTO.getPassword())){
+            throw new RuntimeException("Invalid Credentials");
+        }
+
+
+        String token = jwtUtil.generateToken(auth.getEmail());
+UserResponseDTO userResponseDTO= authInterface.getUser(authLoginRequestDTO.getEmail()).getBody();
+userResponseDTO.setToken(token);
+        return new ResponseEntity<>(userResponseDTO,HttpStatus.OK);
     }
 }
