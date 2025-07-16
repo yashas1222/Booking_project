@@ -1,4 +1,4 @@
-import { Box,Text,Heading,Button,Flex} from '@chakra-ui/react'
+import { Box,Text,Heading,Button,Flex , Grid , GridItem} from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { movies } from '../Data/data'
@@ -7,6 +7,7 @@ import { useCurrentDate } from '../CustomHooks/useCurrentDate'
 import LocationSelection from '../Components/LocationSelection'
 import { useContext } from 'react'
 import { LocationContext } from '../Context/LocationContext'
+import { cinemaHalls } from '../Data/cinemas'
 
 
 const Booking = () => {
@@ -34,6 +35,8 @@ const Booking = () => {
     }
     const {location} = useContext(LocationContext);
     
+    const locationCinemaHalls = cinemaHalls.filter((value)=>value.location === location[0])
+    console.log(locationCinemaHalls)
   return (
     <Box marginTop="-110px" color="black">
         <Flex padding="1rem" marginBottom="2rem" backgroundColor="blue.200">
@@ -48,7 +51,7 @@ const Booking = () => {
                             color:"white",
                             backgroundColor:"red.400"
                         }} border="1px solid black" padding="1rem" width="80px" height="100px" justifyContent="center" alignItems="center"  borderRadius="md" flexDirection="column" key={index}>
-                        <Text  fontSize="1.3rem" fontWeight="bolder"  >{value.dayName}</Text>
+                        <Text  fontSize="1.3rem" fontWeight="bolder">{value.dayName}</Text>
                         <Text fontWeight="bold">{value.day}</Text>
                         <Text>{value.month}</Text>
                     </Flex>
@@ -60,11 +63,52 @@ const Booking = () => {
             <Flex >
                 
                 <LocationSelection/>
-                
+
                 
                 
             </Flex>
+
         </Flex>
+        <Grid color="black" marginTop="1rem" templateColumns="1fr" gap="2rem" >
+            { locationCinemaHalls.length > 0 ? 
+                (locationCinemaHalls.map((cinema)=>{
+                    const thisMovie = cinema.shows.find((movies)=>movies.movieId === data.id)
+                    if(!thisMovie){
+                        return null; 
+                    }
+                        // i am struggling to show a single message when a particular location does not host this movie <---------------------
+                    return(
+                        <GridItem padding="3rem" backgroundColor="pink.200" key={cinema.id}>
+                            <Flex justifyContent="space-between" alignItems="center">
+                                <Box>
+                                    <Heading fontSize="1.5rem" fontWeight="bolder">{cinema.name}</Heading>
+                                    <Text fontWeight="bold">{cinema.location}</Text>
+                                    
+                                </Box>
+                                <Box>
+                                    <Flex gap="1rem">
+
+                                        {thisMovie.timings.map((time,index)=>(
+                                            <Text _hover={{
+                                                backgroundColor:"red.300",
+                                                color:"white",
+                                                cursor:"pointer"
+                                            }} border="1px solid black" padding="1rem" borderRadius="md"  key={index}>{time}</Text>
+                                        ))}
+                                    </Flex>
+                                </Box>
+
+                            </Flex> 
+                        </GridItem>
+
+                    ) 
+                    
+                    
+                })):<Heading color="black" fontSize="4rem">Sorry</Heading>
+            }
+            {/* <GridItem backgroundColor="pink.200" padding="1rem"></GridItem> */}
+            
+        </Grid>
     </Box>
   )
 }

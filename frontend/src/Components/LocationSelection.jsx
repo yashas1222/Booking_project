@@ -11,7 +11,8 @@ const LocationSelection = () => {
                 { label: "Bangalore", value: "Bangalore" },
                 { label: "Delhi", value: "Delhi" },
                 { label: "Chennai", value: "Chennai" },
-                { label: "Mumbai", value: "Mumbai" }
+                { label: "Mumbai", value: "Mumbai" },
+                { label: "Goa", value: "Goa" }
                 
             ],
         })
