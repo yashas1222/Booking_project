@@ -12,7 +12,7 @@ const LogIn = () => {
     }
   return (
     
-    <Box className='login' fontSize="lg"  display="flex" justifyContent="center" alignItems="center" width="100vw" height="100vh"  color="white">
+    <Box className='login' margin="-110px"  fontSize="lg"  display="flex" justifyContent="center" alignItems="center" width="100vw" height="100vh"  color="white">
         <Box
             position="fixed"
             top={0}
@@ -21,13 +21,29 @@ const LogIn = () => {
             height="100vh"
             backgroundColor="rgba(0, 0, 0, 0.5)" 
             backdropFilter="blur(1rem)" 
-            zIndex={10} 
+            zIndex="1"
         />
             
-        <Box paddingLeft="24" className='box'  position="absolute" top="50" left="50"  zIndex="1000" width="30%" height="50%">
+        <Box paddingLeft="24" className='box'  position="absolute" top="40" left="50"  zIndex="1000" width="30%" height="50%">
             <Heading   fontSize="2rem" paddingBottom="3rem" fontWeight="bolder">Create An Account</Heading>
             <form  onSubmit={handleSubmit(onSubmitFun)}>
               <Stack gap="4" align="flex-start" maxW="sm">
+                <Field.Root invalid={!!errors.name}>
+                  <Field.Label>Name</Field.Label>
+                  <Input {...register("name",{
+                    required:"Invalid name",
+                    validate:(value)=>{
+                      if(value.trim()===""){
+                        return "Enter a valid name"
+                      }
+                      else{
+                        return true;
+                      }
+                    }
+                  })}/>
+                <Field.ErrorText>{errors.name?.message}</Field.ErrorText>
+                </Field.Root>
+
                 <Field.Root  invalid={!!errors.email}>
                   <Field.Label >Email</Field.Label>
                   <Input {...register("email",{

@@ -2,6 +2,10 @@ import { createBrowserRouter, RouterProvider  } from "react-router-dom"
 import RootPage from "./Paths/RootPage";
 import HomePage from "./Paths/HomePage";
 import LogIn from "./Paths/LogIn";
+import Explore from "./Paths/Explore";
+import CategorySpecific from "./Paths/CategorySpecific";
+import Booking from "./Paths/Booking";
+import LocationContextAPI from "./Context/LocationContext";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -10,20 +14,38 @@ const App = () => {
       element:<RootPage/>,  
       children:[
         {
-          index:true,
+          path:"/",
           element:<HomePage/>,
+          
         },
+        {
+          path:"/:category",
+          element:<CategorySpecific/>
+        }
+        
         
       ]
       
     },
     {
-      path:"LogIn",
+      path:"/LogIn",
       element:<LogIn/>,
     },
+    {
+      path:"/explore/:id",
+      element:<Explore/>
+    },
+    {
+      path:"/booking/:id",
+      element:<Booking/>
+    }
+    
   ]);
   return (
-    <RouterProvider router={router}/>
+    <LocationContextAPI>
+
+        <RouterProvider router={router}/>
+    </LocationContextAPI>
   )
 }
 

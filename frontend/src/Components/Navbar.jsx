@@ -1,27 +1,22 @@
-import { useState } from "react";
+
 import { Button,Dialog, CloseButton, Drawer, Image, Portal ,Box, Flex} from "@chakra-ui/react"
 import { Input, InputGroup,Text} from "@chakra-ui/react"
 import { LuSearch } from "react-icons/lu"
-import {  Select, createListCollection } from "@chakra-ui/react"
+
 import { useContext } from "react"
 import { SearchContext } from "../Context/SearchContextAPI"
-import { NavLink } from "react-router-dom";
+
 import SignIn from "./SignIn";
+import LocationSelection from "./LocationSelection";
 
 
 
 
 
 const Navbar = () => {
-
-    const [value, setValue] = useState([])
-    const frameworks = createListCollection({
-        items: [
-            { label: "Bangalore", value: "Bangalore" },
-            { label: "Hyderabad", value: "Hyderabad" },
-        ],
-    })
+    
     const {searchInput,handleChange} = useContext(SearchContext); 
+    
 
   return (
     <Flex position="fixed" zIndex="10" top="0px"  justifyContent="center" width="100%"  alignItems="center"  bg="black" >
@@ -37,7 +32,7 @@ const Navbar = () => {
                     <div>
                         {/* Search filter */}
                         <InputGroup size="lg" width="500px" startElement={<LuSearch />} >
-                            <Input onChange={handleChange} value={searchInput} color={'white'} placeholder="Search for Movies, Events, Activities and Plays." />
+                            <Input onChange={handleChange} value={searchInput} placeholder="Search for Movies, Events, Activities and Plays." />
                         </InputGroup >
                         
                     </div>
@@ -47,40 +42,8 @@ const Navbar = () => {
 
                     <div>
 
-                        <Select.Root
-                            collection={frameworks}
-                            width="200px"
-                            value={value}
-                            onValueChange={(e) => setValue(e.value)}
-                        >
-                            <Select.HiddenSelect />
-                            <Select.Control>
-                                <Select.Trigger>
-                                <Select.ValueText placeholder="Location" />
-                                </Select.Trigger>
-                                <Select.IndicatorGroup>
-                                <Select.Indicator />
-                                </Select.IndicatorGroup>
-                            </Select.Control>
-                            <Portal>
-                                <Select.Positioner>
-                                <Select.Content>
-                                    {frameworks.items.map((framework) => (
-                                    <Select.Item item={framework} key={framework.value}>
-                                        {framework.label}
-                                        <Select.ItemIndicator />
-                                    </Select.Item>
-                                    ))}
-                                </Select.Content>
-                                </Select.Positioner>
-                            </Portal>
-                        </Select.Root>
-                        {/* <div className="location">
-                            <select name="location" className="border-1 p-1" id="location">
-                                <option value="Bangalore">Bangalore</option>
-                                <option value="Hyderabad">Hyderabad</option>
-                            </select>
-                        </div> */}
+                        <LocationSelection/>
+                        
                     </div>
 
                     <div>
@@ -115,9 +78,7 @@ const Navbar = () => {
                             </Portal>
                         </Dialog.Root>
 
-                        {/* <div className="signin">
-                            <button className="p-2 cursor-pointer border-2 bg-red-600 text-white rounded-md font-bold ">Sign in</button>
-                        </div> */}
+                        
                     </div>
 
                     <div>

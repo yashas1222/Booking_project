@@ -1,10 +1,12 @@
 import { Box,Flex,Heading } from "@chakra-ui/react"
 import { Button, Card, Image, Text } from "@chakra-ui/react"
 import { HiHeart } from "react-icons/hi"
+import { NavLink } from "react-router-dom"
 
 
 
-const Cards = ({title, body, img, rating}) => {
+const Cards = ({title ,id, body, img, rating}) => {
+  
   return (
     
         <Box >
@@ -18,19 +20,24 @@ const Cards = ({title, body, img, rating}) => {
                 objectFit="cover"
               />
               <Card.Title mb="2">{title}</Card.Title>
-              <Card.Description>
+              <Card.Description height="100px">
                 {body}
               </Card.Description>
               
               <Flex alignItems="center" textStyle="2xl" fontWeight="medium" letterSpacing="tight" mt="2" gap="5px">
-                <Text > <HiHeart /></Text>  
+                <Text color="red"> <HiHeart /></Text>  
                 <Text>{`${rating}/10`}</Text>
               </Flex>
               
             </Card.Body>
             <Card.Footer justifyContent="flex-end">
               
-              <Button>Book</Button>
+
+              {/* Booking functionality */}
+              <NavLink to={`explore/${id}`}><Button>Explore</Button></NavLink>
+              <NavLink to={`booking/${id}`}><Button backgroundColor="red" color="white">Book</Button></NavLink>
+              {/* Booking functionality */}
+
             </Card.Footer>
           </Card.Root>
       </Box>

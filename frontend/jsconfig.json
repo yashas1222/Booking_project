@@ -5,7 +5,7 @@
     "moduleResolution": "Bundler",
     "skipLibCheck": true,
     "paths": {
-      "@/*": ["frontend/src/*"]
+      "@/*": ["./src/*"]
     }
   }
 }
