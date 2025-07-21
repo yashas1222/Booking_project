@@ -88,5 +88,465 @@ export const movies = [
     body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
     rating: "7.9",
     languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
-  }
+  },
+   {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+  ,
+  {
+    tags: ["events", "comedy", "stand-up"],
+    id: "vir-das-mind-fool-tour",
+    title: "Vir Das: Mind Fool Tour",
+    img: "vir-das.jpg",
+    body: "India's leading stand-up comedian returns with his global comedy special.",
+    rating: "8.7",
+    languages: ["hindi", "english"]
+  },
+
+  // ⚽ Sports
+  {
+    tags: ["sports", "cricket", "live"],
+    id: "india-vs-australia-odi",
+    title: "India vs Australia ODI",
+    img: "ind-aus.jpg",
+    body: "Watch the thrilling live ODI between India and Australia at Wankhede Stadium.",
+    rating: "8.9",
+    languages: ["hindi", "english", "tamil", "telugu", "kannada"]
+  },
+  {
+    tags: ["sports", "football", "premier-league"],
+    id: "man-city-vs-liverpool",
+    title: "Man City vs Liverpool",
+    img: "man-city-liverpool.jpg",
+    body: "Premier League giants face off in a high-stakes football match.",
+    rating: "9.1",
+    languages: ["english", "hindi"]
+  },
+
+  // 🎬 Bonus Movie
+  {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+   {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+  ,
+  {
+    tags: ["events", "comedy", "stand-up"],
+    id: "vir-das-mind-fool-tour",
+    title: "Vir Das: Mind Fool Tour",
+    img: "vir-das.jpg",
+    body: "India's leading stand-up comedian returns with his global comedy special.",
+    rating: "8.7",
+    languages: ["hindi", "english"]
+  },
+
+  // ⚽ Sports
+  {
+    tags: ["sports", "cricket", "live"],
+    id: "india-vs-australia-odi",
+    title: "India vs Australia ODI",
+    img: "ind-aus.jpg",
+    body: "Watch the thrilling live ODI between India and Australia at Wankhede Stadium.",
+    rating: "8.9",
+    languages: ["hindi", "english", "tamil", "telugu", "kannada"]
+  },
+  {
+    tags: ["sports", "football", "premier-league"],
+    id: "man-city-vs-liverpool",
+    title: "Man City vs Liverpool",
+    img: "man-city-liverpool.jpg",
+    body: "Premier League giants face off in a high-stakes football match.",
+    rating: "9.1",
+    languages: ["english", "hindi"]
+  },
+
+  // 🎬 Bonus Movie
+  {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+   {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+  ,
+  {
+    tags: ["events", "comedy", "stand-up"],
+    id: "vir-das-mind-fool-tour",
+    title: "Vir Das: Mind Fool Tour",
+    img: "vir-das.jpg",
+    body: "India's leading stand-up comedian returns with his global comedy special.",
+    rating: "8.7",
+    languages: ["hindi", "english"]
+  },
+
+  // ⚽ Sports
+  {
+    tags: ["sports", "cricket", "live"],
+    id: "india-vs-australia-odi",
+    title: "India vs Australia ODI",
+    img: "ind-aus.jpg",
+    body: "Watch the thrilling live ODI between India and Australia at Wankhede Stadium.",
+    rating: "8.9",
+    languages: ["hindi", "english", "tamil", "telugu", "kannada"]
+  },
+  {
+    tags: ["sports", "football", "premier-league"],
+    id: "man-city-vs-liverpool",
+    title: "Man City vs Liverpool",
+    img: "man-city-liverpool.jpg",
+    body: "Premier League giants face off in a high-stakes football match.",
+    rating: "9.1",
+    languages: ["english", "hindi"]
+  },
+
+  // 🎬 Bonus Movie
+  {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+   {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+  ,
+  {
+    tags: ["events", "comedy", "stand-up"],
+    id: "vir-das-mind-fool-tour",
+    title: "Vir Das: Mind Fool Tour",
+    img: "vir-das.jpg",
+    body: "India's leading stand-up comedian returns with his global comedy special.",
+    rating: "8.7",
+    languages: ["hindi", "english"]
+  },
+
+  // ⚽ Sports
+  {
+    tags: ["sports", "cricket", "live"],
+    id: "india-vs-australia-odi",
+    title: "India vs Australia ODI",
+    img: "ind-aus.jpg",
+    body: "Watch the thrilling live ODI between India and Australia at Wankhede Stadium.",
+    rating: "8.9",
+    languages: ["hindi", "english", "tamil", "telugu", "kannada"]
+  },
+  {
+    tags: ["sports", "football", "premier-league"],
+    id: "man-city-vs-liverpool",
+    title: "Man City vs Liverpool",
+    img: "man-city-liverpool.jpg",
+    body: "Premier League giants face off in a high-stakes football match.",
+    rating: "9.1",
+    languages: ["english", "hindi"]
+  },
+
+  // 🎬 Bonus Movie
+  {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+   {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+  ,
+  {
+    tags: ["events", "comedy", "stand-up"],
+    id: "vir-das-mind-fool-tour",
+    title: "Vir Das: Mind Fool Tour",
+    img: "vir-das.jpg",
+    body: "India's leading stand-up comedian returns with his global comedy special.",
+    rating: "8.7",
+    languages: ["hindi", "english"]
+  },
+
+  // ⚽ Sports
+  {
+    tags: ["sports", "cricket", "live"],
+    id: "india-vs-australia-odi",
+    title: "India vs Australia ODI",
+    img: "ind-aus.jpg",
+    body: "Watch the thrilling live ODI between India and Australia at Wankhede Stadium.",
+    rating: "8.9",
+    languages: ["hindi", "english", "tamil", "telugu", "kannada"]
+  },
+  {
+    tags: ["sports", "football", "premier-league"],
+    id: "man-city-vs-liverpool",
+    title: "Man City vs Liverpool",
+    img: "man-city-liverpool.jpg",
+    body: "Premier League giants face off in a high-stakes football match.",
+    rating: "9.1",
+    languages: ["english", "hindi"]
+  },
+
+  // 🎬 Bonus Movie
+  {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+   {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+  ,
+  {
+    tags: ["events", "comedy", "stand-up"],
+    id: "vir-das-mind-fool-tour",
+    title: "Vir Das: Mind Fool Tour",
+    img: "vir-das.jpg",
+    body: "India's leading stand-up comedian returns with his global comedy special.",
+    rating: "8.7",
+    languages: ["hindi", "english"]
+  },
+
+  // ⚽ Sports
+  {
+    tags: ["sports", "cricket", "live"],
+    id: "india-vs-australia-odi",
+    title: "India vs Australia ODI",
+    img: "ind-aus.jpg",
+    body: "Watch the thrilling live ODI between India and Australia at Wankhede Stadium.",
+    rating: "8.9",
+    languages: ["hindi", "english", "tamil", "telugu", "kannada"]
+  },
+  {
+    tags: ["sports", "football", "premier-league"],
+    id: "man-city-vs-liverpool",
+    title: "Man City vs Liverpool",
+    img: "man-city-liverpool.jpg",
+    body: "Premier League giants face off in a high-stakes football match.",
+    rating: "9.1",
+    languages: ["english", "hindi"]
+  },
+
+  // 🎬 Bonus Movie
+  {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+   {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+  ,
+  {
+    tags: ["events", "comedy", "stand-up"],
+    id: "vir-das-mind-fool-tour",
+    title: "Vir Das: Mind Fool Tour",
+    img: "vir-das.jpg",
+    body: "India's leading stand-up comedian returns with his global comedy special.",
+    rating: "8.7",
+    languages: ["hindi", "english"]
+  },
+
+  // ⚽ Sports
+  {
+    tags: ["sports", "cricket", "live"],
+    id: "india-vs-australia-odi",
+    title: "India vs Australia ODI",
+    img: "ind-aus.jpg",
+    body: "Watch the thrilling live ODI between India and Australia at Wankhede Stadium.",
+    rating: "8.9",
+    languages: ["hindi", "english", "tamil", "telugu", "kannada"]
+  },
+  {
+    tags: ["sports", "football", "premier-league"],
+    id: "man-city-vs-liverpool",
+    title: "Man City vs Liverpool",
+    img: "man-city-liverpool.jpg",
+    body: "Premier League giants face off in a high-stakes football match.",
+    rating: "9.1",
+    languages: ["english", "hindi"]
+  },
+
+  // 🎬 Bonus Movie
+  {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+   {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+  ,
+  {
+    tags: ["events", "comedy", "stand-up"],
+    id: "vir-das-mind-fool-tour",
+    title: "Vir Das: Mind Fool Tour",
+    img: "vir-das.jpg",
+    body: "India's leading stand-up comedian returns with his global comedy special.",
+    rating: "8.7",
+    languages: ["hindi", "english"]
+  },
+
+  // ⚽ Sports
+  {
+    tags: ["sports", "cricket", "live"],
+    id: "india-vs-australia-odi",
+    title: "India vs Australia ODI",
+    img: "ind-aus.jpg",
+    body: "Watch the thrilling live ODI between India and Australia at Wankhede Stadium.",
+    rating: "8.9",
+    languages: ["hindi", "english", "tamil", "telugu", "kannada"]
+  },
+  {
+    tags: ["sports", "football", "premier-league"],
+    id: "man-city-vs-liverpool",
+    title: "Man City vs Liverpool",
+    img: "man-city-liverpool.jpg",
+    body: "Premier League giants face off in a high-stakes football match.",
+    rating: "9.1",
+    languages: ["english", "hindi"]
+  },
+
+  // 🎬 Bonus Movie
+  {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+   {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+  ,
+  {
+    tags: ["events", "comedy", "stand-up"],
+    id: "vir-das-mind-fool-tour",
+    title: "Vir Das: Mind Fool Tour",
+    img: "vir-das.jpg",
+    body: "India's leading stand-up comedian returns with his global comedy special.",
+    rating: "8.7",
+    languages: ["hindi", "english"]
+  },
+
+  // ⚽ Sports
+  {
+    tags: ["sports", "cricket", "live"],
+    id: "india-vs-australia-odi",
+    title: "India vs Australia ODI",
+    img: "ind-aus.jpg",
+    body: "Watch the thrilling live ODI between India and Australia at Wankhede Stadium.",
+    rating: "8.9",
+    languages: ["hindi", "english", "tamil", "telugu", "kannada"]
+  },
+  {
+    tags: ["sports", "football", "premier-league"],
+    id: "man-city-vs-liverpool",
+    title: "Man City vs Liverpool",
+    img: "man-city-liverpool.jpg",
+    body: "Premier League giants face off in a high-stakes football match.",
+    rating: "9.1",
+    languages: ["english", "hindi"]
+  },
+
+  // 🎬 Bonus Movie
+  {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+   {
+    tags: ["movies", "biopic", "sports"],
+    id: "ms-dhoni-the-untold-story",
+    title: "M.S. Dhoni: The Untold Story",
+    img: "ms-dhoni.jpg",
+    body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
+    rating: "7.9",
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
+  },
+  
 ];

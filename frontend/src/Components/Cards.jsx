@@ -34,8 +34,8 @@ const Cards = ({title ,id, body, img, rating}) => {
               
 
               {/* Booking functionality */}
-              <NavLink to={`explore/${id}`}><Button>Explore</Button></NavLink>
-              <NavLink to={`booking/${id}`}><Button backgroundColor="red" color="white">Book</Button></NavLink>
+              <NavLink to={`/explore/${id}`}><Button>Explore</Button></NavLink>
+              <NavLink to={`/booking/${id}`}><Button backgroundColor="red" color="white">Book</Button></NavLink>
               {/* Booking functionality */}
 
             </Card.Footer>

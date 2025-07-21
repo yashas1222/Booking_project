@@ -69,14 +69,14 @@ const Booking = () => {
             </Flex>
 
         </Flex>
-        <Grid color="black" marginTop="1rem" templateColumns="1fr" gap="2rem" >
+        <Grid color="black" marginTop="1rem" justifyContent="center" alignItems="center" templateColumns="1fr" gap="2rem" >
             { locationCinemaHalls.length > 0 ? 
                 (locationCinemaHalls.map((cinema)=>{
                     const thisMovie = cinema.shows.find((movies)=>movies.movieId === data.id)
                     if(!thisMovie){
                         return null; 
                     }
-                        // i am struggling to show a single message when a particular location does not host this movie <---------------------
+                        //   i am struggling to show a single message when a particular location does not host this movie <---------------------
                     return(
                         <GridItem padding="3rem" backgroundColor="pink.200" key={cinema.id}>
                             <Flex justifyContent="space-between" alignItems="center">
@@ -85,7 +85,7 @@ const Booking = () => {
                                     <Text fontWeight="bold">{cinema.location}</Text>
                                     
                                 </Box>
-                                <Box>
+                                <Box>   
                                     <Flex gap="1rem">
 
                                         {thisMovie.timings.map((time,index)=>(
@@ -104,7 +104,7 @@ const Booking = () => {
                     ) 
                     
                     
-                })):<Heading color="black" fontSize="4rem">Sorry</Heading>
+                })):<Heading color="black" fontSize="4rem">Sorry, this movie is not available in this city!</Heading>
             }
             {/* <GridItem backgroundColor="pink.200" padding="1rem"></GridItem> */}
             
