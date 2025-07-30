@@ -7,16 +7,16 @@ export const movies = [
     img: "inception.jpg",
     body: "A skilled thief is given a chance at redemption if he can successfully perform inception: planting an idea into someone's mind.",
     rating: "8.8",
-    languages: ["hindi", "tamil", "telugu", "english"]
+    languages: ["hindi", "tamil", "telugu", "english"],
   },
   {
     tags: ["movies", "romance", "drama"],
     id: "la-la-land",
     title: "La La Land",
-    img: "la-la-land.jpg",
+    img: "download.jpg",
     body: "A jazz musician and an aspiring actress fall in love while chasing their dreams in Los Angeles.",
     rating: "8.0",
-    languages: ["hindi", "english"]
+    languages: ["hindi", "english"],
   },
 
   // 🎭 Plays
@@ -27,7 +27,7 @@ export const movies = [
     img: "hamilton.jpg",
     body: "The Broadway hit musical telling the story of American Founding Father Alexander Hamilton.",
     rating: "9.2",
-    languages: ["english", "hindi"]
+    languages: ["english", "hindi"],
   },
   {
     tags: ["plays", "comedy", "family"],
@@ -36,7 +36,7 @@ export const movies = [
     img: "play-goes-wrong.jpg",
     body: "A hilarious farce where everything that can go wrong during a play does go wrong.",
     rating: "8.4",
-    languages: ["hindi", "english", "bengali"]
+    languages: ["hindi", "english", "bengali"],
   },
 
   // 🎉 Events
@@ -47,7 +47,7 @@ export const movies = [
     img: "ed-sheeran.jpg",
     body: "Grammy-winning singer Ed Sheeran performs live on his worldwide tour.",
     rating: "9.0",
-    languages: ["english"]
+    languages: ["english"],
   },
   {
     tags: ["events", "comedy", "stand-up"],
@@ -56,7 +56,7 @@ export const movies = [
     img: "vir-das.jpg",
     body: "India's leading stand-up comedian returns with his global comedy special.",
     rating: "8.7",
-    languages: ["hindi", "english"]
+    languages: ["hindi", "english"],
   },
 
   // ⚽ Sports
@@ -67,7 +67,7 @@ export const movies = [
     img: "ind-aus.jpg",
     body: "Watch the thrilling live ODI between India and Australia at Wankhede Stadium.",
     rating: "8.9",
-    languages: ["hindi", "english", "tamil", "telugu", "kannada"]
+    languages: ["hindi", "english", "tamil", "telugu", "kannada"],
   },
   {
     tags: ["sports", "football", "premier-league"],
@@ -76,7 +76,7 @@ export const movies = [
     img: "man-city-liverpool.jpg",
     body: "Premier League giants face off in a high-stakes football match.",
     rating: "9.1",
-    languages: ["english", "hindi"]
+    languages: ["english", "hindi"],
   },
 
   // 🎬 Bonus Movie
@@ -87,6 +87,6 @@ export const movies = [
     img: "ms-dhoni.jpg",
     body: "The inspiring journey of Indian cricket legend Mahendra Singh Dhoni.",
     rating: "7.9",
-    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"]
-  }
+    languages: ["hindi", "tamil", "telugu", "bengali", "marathi"],
+  },
 ];

@@ -4,6 +4,7 @@ import com.bms.auth_service.dto.AuthLoginRequestDTO;
 import com.bms.auth_service.dto.AuthSignupRequestDTO;
 import com.bms.auth_service.dto.UserRequestDTO;
 import com.bms.auth_service.dto.UserResponseDTO;
+import com.bms.auth_service.exception.AuthFailedException;
 import com.bms.auth_service.exception.UserNotFoundException;
 import com.bms.auth_service.feign.AuthInterface;
 import com.bms.auth_service.model.Auth;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -69,5 +71,11 @@ userResponseDTO.setToken(token);
         authRepository.findByEmail(email).orElseThrow(()-> new UserNotFoundException("User not found!"));
         authRepository.deleteByEmail(email);
     return authInterface.deleteUser(email);
+    }
+
+    public void validateUser(Map<String, String> body) {
+         if(!jwtUtil.isTokenValid(body.get("token"))){
+             throw new AuthFailedException("User not authenticated");
+         }
     }
 }

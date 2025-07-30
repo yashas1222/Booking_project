@@ -7,12 +7,14 @@ import com.bms.auth_service.dto.UserResponseDTO;
 import com.bms.auth_service.exception.AuthFailedException;
 import com.bms.auth_service.service.AuthService;
 import com.bms.auth_service.util.JwtUtil;
-import jakarta.servlet.ServletRequest;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("auth")
@@ -62,4 +64,12 @@ public  ResponseEntity<UserResponseDTO> updateUser(@PathVariable String email, @
     }
     return authService.deleteUser(email);
 }
+
+@PostMapping("/validate")
+    public void validateToken(@RequestBody Map<String, String > body){
+    authService.validateUser(body);
+
+}
+
+
 }
