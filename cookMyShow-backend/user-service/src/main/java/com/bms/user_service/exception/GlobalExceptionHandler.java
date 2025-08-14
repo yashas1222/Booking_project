@@ -1,31 +1,38 @@
 package com.bms.user_service.exception;
 
+import com.bms.user_service.dto.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.time.LocalDateTime;
+
 @RestControllerAdvice
- public class GlobalExceptionHandler{
+public class GlobalExceptionHandler {
 
     @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<String> handleUserNotFound( UserNotFoundException ex){
-        return new ResponseEntity<>(ex.getMessage() , HttpStatus.NOT_FOUND);
+    public ResponseEntity<ErrorResponse> handleUserNotFound(UserNotFoundException ex) {
+        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), HttpStatus.BAD_REQUEST.value(), LocalDateTime.now());
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<String> handleValidationError(MethodArgumentNotValidException ex){
+    public ResponseEntity<ErrorResponse> handleValidationError(MethodArgumentNotValidException ex) {
         ex.printStackTrace();
         String message = ex.getBindingResult().getFieldError().getDefaultMessage();
-        return new ResponseEntity<>(message,HttpStatus.BAD_REQUEST);
+        ErrorResponse errorResponse = new ErrorResponse(message, HttpStatus.BAD_REQUEST.value(), LocalDateTime.now());
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
-        public ResponseEntity<String> handleGenericError(Exception e){
+    public ResponseEntity<ErrorResponse> handleGenericError(Exception e) {
         e.printStackTrace();
-            return new ResponseEntity<>("Something Went Wrong", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        ErrorResponse errorResponse = new ErrorResponse("Something Went Wrong", HttpStatus.INTERNAL_SERVER_ERROR.value(), LocalDateTime.now());
+        return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+}
 
 

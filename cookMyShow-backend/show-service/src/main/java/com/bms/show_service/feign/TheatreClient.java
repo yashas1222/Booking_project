@@ -1,4 +1,4 @@
-package com.bms.show_service.fiegn;
+package com.bms.show_service.feign;
 
 import com.bms.show_service.dto.TheatreInfoDto;
 import org.springframework.cloud.openfeign.FeignClient;

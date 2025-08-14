@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("shows")
@@ -64,6 +65,11 @@ public class ShowController {
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date
     ) {
         return showService.getShowsForTheatreOnDate(eventId, theatreId, date);
+    }
+
+    @PostMapping("/isShowAvailable/{showId}")
+    public ResponseEntity<Map<String, List<String>>> validateBooking(@PathVariable String showId,@RequestBody List<String> seats){
+return showService.validateBooking(showId,seats);
     }
 
 

@@ -2,6 +2,7 @@ package com.bms.theatre_service.service;
 
 import com.bms.theatre_service.dto.TheatreInfoDto;
 import com.bms.theatre_service.dto.TheatreRequestDto;
+import com.bms.theatre_service.exception.TheatreNotFoundException;
 import com.bms.theatre_service.model.Theatre;
 import com.bms.theatre_service.repository.TheatreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,11 +56,10 @@ Theatre theatre = new Theatre(theatreRequestDto);
     public ResponseEntity<Map<String, Object>> getTheatres(Pageable pageable) {
     Page<Theatre> theatres = theatreRepository.findAll(pageable);
     return createResponseForPageable(theatres);
-
     }
 
     public ResponseEntity<TheatreInfoDto> getTheatre(String theatreId) {
-    Theatre theatre = theatreRepository.findById(theatreId).orElseThrow(RuntimeException::new);
+    Theatre theatre = theatreRepository.findById(theatreId).orElseThrow(()-> new TheatreNotFoundException("Theatre not found"));
    TheatreInfoDto theatreInfoDto = new TheatreInfoDto(theatre);
     return new ResponseEntity<>(theatreInfoDto, HttpStatus.OK);
     }

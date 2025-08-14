@@ -1,6 +1,7 @@
 package com.bms.auth_service.feign;
 
 
+import com.bms.auth_service.config.FeignConfig;
 import com.bms.auth_service.dto.UserRequestDTO;
 import com.bms.auth_service.dto.UserResponseDTO;
 import jakarta.validation.Valid;
@@ -8,8 +9,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient("USER-SERVICE")
-public interface AuthInterface {
+@FeignClient(name ="USER-SERVICE", configuration = FeignConfig.class)
+public interface UserClient {
 
     @PostMapping("user/create")
     public ResponseEntity<String> createUser(@Valid @RequestBody UserRequestDTO userRequestDTO);

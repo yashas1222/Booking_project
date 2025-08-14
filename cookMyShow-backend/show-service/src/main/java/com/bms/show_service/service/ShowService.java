@@ -1,11 +1,14 @@
 package com.bms.show_service.service;
 
 import com.bms.show_service.dto.*;
-import com.bms.show_service.fiegn.EventClient;
-import com.bms.show_service.fiegn.TheatreClient;
+import com.bms.show_service.exception.DownstreamServiceException;
+import com.bms.show_service.exception.ShowNotFoundException;
+import com.bms.show_service.feign.EventClient;
+import com.bms.show_service.feign.TheatreClient;
 import com.bms.show_service.model.SeatCategory;
 import com.bms.show_service.model.SeatStatus;
 import com.bms.show_service.model.Show;
+import com.bms.show_service.model.ShowStatus;
 import com.bms.show_service.repository.ShowRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -119,11 +122,23 @@ return new ResponseEntity<>(shows, HttpStatus.OK);
         return new ResponseEntity<>(new ShowAvailabilityResponseDto(),HttpStatus.OK);
 
     }
-    List<TheatreInfoDto> theatreInfoDtos = theatreClient.getTheatresByIdAndCity(city, new ArrayList<>(theaterIds)).getBody();
+        List<TheatreInfoDto> theatreInfoDtos;
+    try{
+       theatreInfoDtos = theatreClient.getTheatresByIdAndCity(city, new ArrayList<>(theaterIds)).getBody();
+
+    }catch (DownstreamServiceException ex){
+        throw new RuntimeException("Failed to fetch theatres "+ex.getMessage());
+    }
+
 
     ShowAvailabilityResponseDto responseDto = new ShowAvailabilityResponseDto();
 responseDto.setEventId(eventId);
-responseDto.setEventTitle(eventClient.getEventTitle(eventId));
+
+try{
+    responseDto.setEventTitle(eventClient.getEventTitle(eventId));
+}catch (DownstreamServiceException ex){
+    throw new RuntimeException("Failed to fetch shows "+ex.getMessage());
+}
 responseDto.setCity(city);
 responseDto.setDate(date);
 responseDto.setTheatres(theatreInfoDtos);
@@ -139,9 +154,22 @@ responseDto.setTheatres(theatreInfoDtos);
         if (shows.isEmpty()) {
             return ResponseEntity.ok(new ScreenwiseShowResponseDto());
         }
+        String eventTitle;
+        try{
+            eventTitle = eventClient.getEventTitle(eventId);
+        }catch (DownstreamServiceException ex){
+            throw new RuntimeException("Failed to fetch shows "+ex.getMessage());
+        }
 
-        String eventTitle = eventClient.getEventTitle(eventId);
-        TheatreInfoDto theatre = theatreClient.getTheatre(theatreId).getBody();
+        TheatreInfoDto theatre;
+        try{
+            theatre = theatreClient.getTheatre(theatreId).getBody();
+        }catch (DownstreamServiceException ex){
+            throw new RuntimeException("Failed to fetch shows "+ex.getMessage());
+        }
+
+
+
 
         Map<String, List<Show>> screenShowMap = shows.stream()
                 .collect(Collectors.groupingBy(Show::getScreenName));
@@ -185,6 +213,35 @@ responseDto.setTheatres(theatreInfoDtos);
         response.setScreens(screenShowsList);
 
         return ResponseEntity.ok(response);
+    }
+    public ResponseEntity<Map<String, List<String>>> validateBooking(String showId, List<String> seats) {
+
+        Show show = showRepository.findById(showId)
+                .orElseThrow(() -> new ShowNotFoundException("Show not found"));
+        if (!show.getStatus().equals(ShowStatus.AVAILABLE)) {
+           throw new ShowNotFoundException("Show not available");
+        }
+        // Merge all category seat maps into one
+        Map<String, SeatStatus> allSeatsStatus = show.getSeatCategories()
+                .stream()
+                .flatMap(category -> category.getSeatStatusMap().entrySet().stream())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        List<String> availableSeats = new ArrayList<>();
+        List<String> unavailableSeats = new ArrayList<>();
+
+        for (String seatId : seats) {
+            SeatStatus status = allSeatsStatus.get(seatId);
+            if (status != null && status == SeatStatus.AVAILABLE) {
+                availableSeats.add(seatId);
+            } else {
+                unavailableSeats.add(seatId); // also covers non-existent seats
+            }
+        }
+        return new ResponseEntity<>(Map.of(
+                "availableSeats", availableSeats,
+                "unavailableSeats", unavailableSeats
+        ), HttpStatus.OK);
     }
 
 }

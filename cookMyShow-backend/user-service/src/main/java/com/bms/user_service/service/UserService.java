@@ -84,4 +84,11 @@ public class UserService {
         userGenrePreferenceRepository.deleteByUserId(user.getId());
         return new ResponseEntity<>("Deleted user "+user.getEmail(),HttpStatus.OK);
     }
+
+
+
+    public boolean isUser(String email) {
+        return userRepository.existsByEmail(email);
+
+    }
 }

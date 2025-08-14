@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Document(collection = "shows")
 public class Show {
+
     @Id
     private String id;
     private String eventId;
@@ -23,7 +24,7 @@ public class Show {
     private LocalTime startTime;
     private LocalTime endTime;
     private List<SeatCategory> seatCategories;
-    private String status = "ACTIVE";
+    private ShowStatus  status;
 
     public  Show(ShowRequestDto dto){
         this.eventId= dto.getEventId();
@@ -33,6 +34,6 @@ public class Show {
         this.startTime = dto.getStartTime();
         this.endTime = dto.getEndTime();
         this.seatCategories = dto.getSeatCategories();
-        this.status = dto.getStatus();
+        this.status = ShowStatus.AVAILABLE;
     }
 }
